@@ -19,9 +19,8 @@ namespace MOBILEAPPLICATION.ViewModel
             {
                 IsDarkMode = Application.Current.Properties["IsDarkMode"].ToString();
             }
-            bool a = false;
-            Boolean.TryParse(IsDarkMode, out a);
-            if (a)
+            bool DarkMode = Boolean.TryParse(IsDarkMode, out DarkMode);
+            if (DarkMode)
             {
                 Application.Current.UserAppTheme = OSAppTheme.Dark;
             }

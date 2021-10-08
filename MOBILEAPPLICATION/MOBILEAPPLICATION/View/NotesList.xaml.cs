@@ -29,7 +29,7 @@ namespace MOBILEAPPLICATION.View
         async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             // imports the note data from the listview to the noteviemodel class
-            var oldNote = e.Item as Note;
+            Note oldNote = e.Item as Note;
             if (oldNote == null)
                 return;
             noteViewModel.Note.Name = oldNote.Name;
@@ -38,8 +38,10 @@ namespace MOBILEAPPLICATION.View
             noteViewModel.Note.Category = oldNote.Category;
             noteViewModel.Note.NameAndDate = oldNote.NameAndDate;
             //pushes the note view model class to a new page
-            NotesEditor noteEditor = new NotesEditor();
-            noteEditor.BindingContext = noteViewModel;
+            NotesEditor noteEditor = new NotesEditor
+            {
+                BindingContext = noteViewModel
+            };
             await Navigation.PushModalAsync(noteEditor);
         }
         protected override void OnAppearing()

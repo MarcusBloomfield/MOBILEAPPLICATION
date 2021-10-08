@@ -62,15 +62,17 @@ namespace MOBILEAPPLICATION.ViewModel
         public void CreateCategories()
         {
             // dynamicly creates categories form the notes by accessing their notes.category property
-            categories.Clear();
+            Categories.Clear();
             foreach (var note in Notes)
             {
-                if (!categories.Any(category => category.Name == note.Category))
+                if (!Categories.Any(category => category.Name == note.Category))
                 {
-                    var newCategory = new Category();
-                    newCategory.Name = note.Category;
-                    newCategory.Date = note.Date;
-                    categories.Add(newCategory);
+                    Category newCategory = new Category
+                    {
+                        Name = note.Category,
+                        Date = note.Date
+                    };
+                    Categories.Add(newCategory);
                 }
             }
         }
@@ -136,10 +138,12 @@ namespace MOBILEAPPLICATION.ViewModel
         public void CreateDefaultNote()
         {
             // creates a default note for new accounts
-            Note defaultNote = new Note();
-            defaultNote.Name = "Defult Note";
-            defaultNote.Category = "Default Note";
-            defaultNote.Content = "THIS IS A DEFAULT NOTE";
+            Note defaultNote = new Note
+            {
+                Name = "Defult Note",
+                Category = "Default Note",
+                Content = "THIS IS A DEFAULT NOTE"
+            };
             SaveNote(defaultNote);
         }
         public void Sort(ListView listView, ObservableCollection<Category> ListToSearch)

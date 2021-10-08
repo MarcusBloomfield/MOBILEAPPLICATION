@@ -16,9 +16,9 @@ namespace MOBILEAPPLICATION.ViewModel
         static string savedUserName;
         static string savedPassWord;
         // API keys used to access the api to database
-        static string subkey = "94ca3f9d05c141448c53336badca9604";
-        static string keyType = "Ocp-Apim-Subscription-Key";
-        static string apiURL = "https://notesalanapi.azure-api.net/NotesFunctionApp";
+        static readonly string subkey = "94ca3f9d05c141448c53336badca9604";
+        static readonly string keyType = "Ocp-Apim-Subscription-Key";
+        static readonly string apiURL = "https://notesalanapi.azure-api.net/NotesFunctionApp";
         public static async Task<string> Login(string userName, string passWord)
         {
             // this function returns the notes from the data base 
@@ -88,6 +88,7 @@ namespace MOBILEAPPLICATION.ViewModel
                     }
                     catch (NullReferenceException ex)
                     {
+                        Console.WriteLine(ex.Message);
                         return false;
                     }
                 }
