@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MOBILEAPPLICATION.Model
+﻿namespace MOBILEAPPLICATION.Model
 {
     public class Settings
     {

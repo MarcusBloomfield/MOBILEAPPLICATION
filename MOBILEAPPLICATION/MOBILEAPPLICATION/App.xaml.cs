@@ -1,8 +1,5 @@
 ﻿using MOBILEAPPLICATION.View;
-using MOBILEAPPLICATION.ViewModel;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MOBILEAPPLICATION
 {
