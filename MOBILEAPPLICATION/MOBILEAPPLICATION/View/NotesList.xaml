@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MOBILEAPPLICATION.ViewModel"
+             x:Class="MOBILEAPPLICATION.View.NotesList"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}">
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height=".5*"/>
+            </Grid.RowDefinitions>
+            <SearchBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}" TextChanged="SearchBar_TextChanged"/>
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" >
+                <ListView x:Name="listview" Style="{StaticResource NoteListView}" ItemsSource="{Binding NotesByCategory}" IsPullToRefreshEnabled="True" CachingStrategy="RecycleElement" ItemTapped="ListView_ItemTapped" BackgroundColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" Detail="{Binding Date}" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" DetailColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button  MinimumHeightRequest="100"  HeightRequest="100" Style="{StaticResource Button}"  Grid.Row="2" Grid.Column="0" Text="Sort" Clicked="Sort" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}"/>
+            <Button  MinimumHeightRequest="100"  HeightRequest="100"  Style="{StaticResource Button}" Grid.Row="2" Grid.Column="2" Text="New" Clicked="Button_Clicked" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

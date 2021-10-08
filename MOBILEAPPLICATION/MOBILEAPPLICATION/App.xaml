@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MOBILEAPPLICATION.App">
+    <Application.Resources>
+        <Style x:Key="NoteListView" TargetType="ListView">
+            <Setter Property="HasUnevenRows" Value="True"/>
+            <Setter Property="BackgroundColor" Value="Black"/>
+        </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
+        <Style x:Key="BadButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="IndianRed"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
+        <Style x:Key="Entry" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style x:Key="Page" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+
+        <Color x:Key="Black">black</Color>
+        <Color x:Key="White">white</Color>
+        <Color x:Key="Red">IndianRed</Color>
+        <Color x:Key="Gray">LightGray</Color>
+        <Color x:Key="Purple">DarkSlateBlue</Color>
+        <Color x:Key="Transparent">transparent</Color>
+    </Application.Resources>
+</Application>

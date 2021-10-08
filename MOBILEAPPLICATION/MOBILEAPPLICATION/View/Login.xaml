@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MOBILEAPPLICATION.View.Login" 
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label x:Name="loginName" Text="Login" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="30" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
+            <Entry Style="{StaticResource Entry}" Keyboard="Plain" x:Name="UserName" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Placeholder="UserName" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}" />
+            <Entry Style="{StaticResource Entry}" x:Name="Password" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" IsPassword="True" Placeholder="Password" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}"/>
+            <Button MinimumHeightRequest="100"  HeightRequest="100"  Style="{StaticResource Button}" Text="Create Account" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Clicked="CreateAccountClicked" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}"/>
+            <Button MinimumHeightRequest="100"  HeightRequest="100"  Style="{StaticResource Button}" Text="Login" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Clicked="LoginClicked" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

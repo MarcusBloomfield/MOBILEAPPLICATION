@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MOBILEAPPLICATION.View.CreateAccount"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Text="Create Account" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="30" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
+            <Entry x:Name="userName" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Placeholder="UserName"/>
+            <Entry x:Name="passWord" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" IsPassword="True" Placeholder="Password"/>
+            <Button Style="{StaticResource Button}"  Text="Confirm" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Clicked="ConfirmClicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

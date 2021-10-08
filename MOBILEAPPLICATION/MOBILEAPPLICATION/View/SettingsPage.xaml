@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MOBILEAPPLICATION.View.SettingsPage"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" Text="Settings" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="30"/>
+            <Button MinimumHeightRequest="100"  HeightRequest="100"  Text="DarkMode" Clicked="DarkMode" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MOBILEAPPLICATION.View.NotesEditor"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}">
+
+        <ContentPage.Content>
+        <StackLayout>
+            <Grid HorizontalOptions="Fill">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="66*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Entry MinimumHeightRequest="50" HeightRequest="50" x:Name="noteName" Text="{Binding Note.Name}" Grid.Column="0" Grid.Row="0" FontSize="20" FontAttributes="Bold" Placeholder="Name" Grid.ColumnSpan="2" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}"/>
+                <Label MinimumHeightRequest="50"  HeightRequest="50"  x:Name="noteDate" Text="{Binding Note.Date}" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="End" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}"/>
+                <Entry MinimumHeightRequest="50"  HeightRequest="50"  x:Name="noteCategory" Text="{Binding Note.Category}"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" FontSize="20" FontAttributes="Bold" Placeholder="Category" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}"/>
+                <Editor  x:Name="noteBody" Text="{Binding Note.Content}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" MinimumWidthRequest="0" Keyboard="Text" IsTextPredictionEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
+                <Button MinimumHeightRequest="100"  HeightRequest="100" Style="{StaticResource Button}" Text="Save" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Clicked="Save" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Gray}}"/>
+                <Button MinimumHeightRequest="100"  HeightRequest="100" Style="{StaticResource BadButton}"  Text="Delete" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Clicked="Delete" BackgroundColor="IndianRed" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
