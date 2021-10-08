@@ -82,10 +82,7 @@ namespace MOBILEAPPLICATION.ViewModel
             if (category != null) NotesByCategory.Clear();
             foreach (var item in notes)
             {
-                if (item.Category == category)
-                {
-                    NotesByCategory.Add(item);
-                }
+                if (item.Category == category) NotesByCategory.Add(item);
             }
             return NotesByCategory;
         }
@@ -139,7 +136,7 @@ namespace MOBILEAPPLICATION.ViewModel
             // creates a default note for new accounts
             Note defaultNote = new Note
             {
-                Name = "Defult Note",
+                Name = "Default Note",
                 Category = "Default Note",
                 Content = "THIS IS A DEFAULT NOTE"
             };

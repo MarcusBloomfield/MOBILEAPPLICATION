@@ -41,6 +41,10 @@ namespace MOBILEAPPLICATION.View
                         CategoryList categoryList = new CategoryList(deserialisedNotes);
                         await Navigation.PushModalAsync(categoryList);
                     }
+                    else
+                    {
+                        await DisplayAlert("No Account", "Please Create an Account", "Close");
+                    }
                 }
                 else
                 {

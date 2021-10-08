@@ -24,7 +24,7 @@ namespace MOBILEAPPLICATION.ViewModel
             savedPassWord = passWord;
             // assigns static user name and pass word on login
             // new api url with correct http adress
-            var loginApiUrl = apiURL + "/Login";
+            string loginApiUrl = apiURL + "/Login";
             // creates payload
             var payload = new { loginUserName = userName, loginPassword = passWord };
             StringContent httpContent = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json");
@@ -56,7 +56,7 @@ namespace MOBILEAPPLICATION.ViewModel
             {
                 // posts the notes to the database trhough the api
                 httpClient.DefaultRequestHeaders.Add(keyType, subkey);
-                var httpResponse = await httpClient.PostAsync(updateApiUrl, httpContent);
+                await httpClient.PostAsync(updateApiUrl, httpContent);
             }
         }
         public static async Task<bool> CreateAccount(string userName, string passWord)

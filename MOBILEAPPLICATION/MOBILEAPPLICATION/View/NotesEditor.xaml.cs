@@ -13,10 +13,7 @@ namespace MOBILEAPPLICATION.View
         public NotesEditor()
         {
             InitializeComponent();
-            if (Note.Date == null)
-            {
-                Note.Date = DateTime.Now;
-            }
+            if (Note.Date == null) Note.Date = DateTime.Now;
         }
         private void Save(object sender, EventArgs e)
         {
