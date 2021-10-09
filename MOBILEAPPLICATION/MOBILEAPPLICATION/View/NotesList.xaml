@@ -18,7 +18,8 @@
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
             <SearchBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}" TextChanged="SearchBar_TextChanged"/>
-            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" >
+            <Label Text="Notes" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
+             <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" >
                 <ListView x:Name="listview" Style="{StaticResource NoteListView}" ItemsSource="{Binding NotesByCategory}" IsPullToRefreshEnabled="True" CachingStrategy="RecycleElement" ItemTapped="ListView_ItemTapped" BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
