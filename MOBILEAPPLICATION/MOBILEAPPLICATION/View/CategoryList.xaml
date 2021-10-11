@@ -17,7 +17,7 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height=".5*"/>
             </Grid.RowDefinitions>
-            <SearchBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}" TextChanged="SearchBar_TextChanged"/>
+            <SearchBar x:Name="searchBar" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" BackgroundColor="{AppThemeBinding Dark={StaticResource Purple}, Light={StaticResource Transparent}}" TextChanged="SearchBar_TextChanged"/>
             <Label Text="Category" TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
             <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5">
                 <ListView Style="{StaticResource NoteListView}" x:Name="listview" Refreshing="ListView_Refreshing" ItemsSource="{Binding Categories}" IsPullToRefreshEnabled="True" CachingStrategy="RecycleElement" ItemTapped="ListView_ItemTapped" BackgroundColor="Transparent">

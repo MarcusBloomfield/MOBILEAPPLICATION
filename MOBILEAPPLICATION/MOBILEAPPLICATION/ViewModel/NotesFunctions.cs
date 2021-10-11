@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace MOBILEAPPLICATION.ViewModel
 {
-    class NotesFunctions : INotifyPropertyChanged
+    public class NotesFunctions : INotifyPropertyChanged
     {
         // this class uses the inotify property changed interface to allow us to update anything we have on an event
         ObservableCollection<Note> notes = new ObservableCollection<Note>();
@@ -61,17 +61,20 @@ namespace MOBILEAPPLICATION.ViewModel
         public void CreateCategories()
         {
             // dynamicly creates categories form the notes by accessing their notes.category property
-            Categories.Clear();
-            foreach (var note in Notes)
+            if (Notes != null) 
             {
-                if (!Categories.Any(category => category.Name == note.Category))
+                Categories.Clear();
+                foreach (var note in Notes)
                 {
-                    Category newCategory = new Category
+                    if (!Categories.Any(category => category.Name == note.Category))
                     {
-                        Name = note.Category,
-                        Date = note.Date
-                    };
-                    Categories.Add(newCategory);
+                        Category newCategory = new Category
+                        {
+                            Name = note.Category,
+                            Date = note.Date
+                        };
+                        Categories.Add(newCategory);
+                    }
                 }
             }
         }
@@ -80,15 +83,19 @@ namespace MOBILEAPPLICATION.ViewModel
             // allows us to only display notes of a certain type of category from the note.category property
             //pushes the selected notes to the notes by category list that is bound to the notes list view
             if (category != null) NotesByCategory.Clear();
-            foreach (var item in notes)
+            if (notes != null)
             {
-                if (item.Category == category) NotesByCategory.Add(item);
+                foreach (var item in notes)
+                {
+                    if (item.Category == category) NotesByCategory.Add(item);
+                }
             }
             return NotesByCategory;
         }
         public async void SaveNote(Note note)
         {
             CollectNotesByNameThenRemoveFromList(note);
+            RemoveDuplicateNotes(note);
             Notes.Add(note);
             await DatabaseConnectionManager.UpdateNote(NotesAccessor.Notes);
         }
@@ -98,24 +105,27 @@ namespace MOBILEAPPLICATION.ViewModel
             RemoveDuplicateNotes(note);
             await DatabaseConnectionManager.UpdateNote(NotesAccessor.Notes);
         }
-        void CollectNotesByNameThenRemoveFromList(Note note)
+        public void CollectNotesByNameThenRemoveFromList(Note note)
         {
-            // collects identical notes and deletes them
-            List<Note> notesToDelete = new List<Note>();
-            foreach (Note item in Notes)
+            if (note != null)
             {
-                if (item.Name == note.Name && item.Category == note.Category)
+                // collects identical notes and deletes them
+                List<Note> notesToDelete = new List<Note>();
+                foreach (Note item in Notes)
                 {
-                    note.Content = note.Content + Environment.NewLine + Environment.NewLine + " Content From Old Note : " + item.Content;
-                    notesToDelete.Add(item);
+                    if (item.Name == note.Name && item.Category == note.Category)
+                    {
+                        note.Content = note.Content + Environment.NewLine + Environment.NewLine + " Content From Old Note : " + item.Content;
+                        notesToDelete.Add(item);
+                    }
+                }
+                foreach (Note item in notesToDelete)
+                {
+                    Notes.Remove(item);
                 }
             }
-            foreach (Note item in notesToDelete)
-            {
-                Notes.Remove(item);
-            }
         }
-        void RemoveDuplicateNotes(Note note)
+        public void RemoveDuplicateNotes(Note note)
         {
             //collects duplicate notes and deletes them
             List<Note> notesToDelete = new List<Note>();

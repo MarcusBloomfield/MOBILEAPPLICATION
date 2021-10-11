@@ -52,6 +52,7 @@ namespace MOBILEAPPLICATION.View
 
         private void ListView_Refreshing(object sender, EventArgs e)
         {
+            searchBar.Text = null;
             NotesAccessor.CreateCategories();
             listview.IsRefreshing = false;
         }

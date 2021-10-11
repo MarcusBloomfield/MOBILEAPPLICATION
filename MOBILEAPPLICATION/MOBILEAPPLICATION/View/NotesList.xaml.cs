@@ -56,5 +56,11 @@ namespace MOBILEAPPLICATION.View
         {
             NotesAccessor.SearchNotes(listview, e.NewTextValue);
         }
+        private void ListView_Refreshing(object sender, EventArgs e)
+        {
+            searchBar.Text = null;
+            listview.ItemsSource = NotesAccessor.Notes;
+            listview.IsRefreshing = false;
+        }
     }
 }
