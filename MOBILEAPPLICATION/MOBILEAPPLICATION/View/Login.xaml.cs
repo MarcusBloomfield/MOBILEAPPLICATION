@@ -24,19 +24,15 @@ namespace MOBILEAPPLICATION.View
         }
         private async void LoginClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("a");
             // checks for valid entered pass word and name, Runs login function from database connector, grabs users ntoes, creates categories and pushes category list
             if (UserName.Text?.Length > 0 && Password.Text?.Length > 0)
             {
-                Console.WriteLine("b" + UserName.Text + Password.Text);
                 if (Connectivity.NetworkAccess != NetworkAccess.None)
                 {
-                    Console.WriteLine("c");
                     string notes = await DatabaseConnectionManager.Login(UserName.Text, Password.Text);
 
                     if (notes.Length > 0)
                     {
-                        Console.WriteLine("d");
                         ObservableCollection<Note> deserialisedNotes = JsonConvert.DeserializeObject<ObservableCollection<Note>>(notes);
                         CategoryList categoryList = new CategoryList(deserialisedNotes);
                         await Navigation.PushModalAsync(categoryList);
